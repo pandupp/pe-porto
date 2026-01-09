@@ -31,7 +31,7 @@
             line-height: 1.6;
         }
 
-        /* Gradient Mesh Background */
+        /* Gradient Background */
         body::before {
             content: ''; position: fixed; width: 600px; height: 600px;
             background: radial-gradient(circle, rgba(255,94,0,0.08), transparent);
@@ -52,7 +52,7 @@
            ========================================= */
         nav {
             position: fixed; top: 0; width: 100%; padding: 20px 0;
-            background: rgba(255, 255, 255, 0.9); backdrop-filter: blur(12px);
+            background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(12px);
             z-index: 1000; border-bottom: 1px solid rgba(0,0,0,0.05);
         }
         .nav-flex { display: flex; justify-content: space-between; align-items: center; }
@@ -64,12 +64,8 @@
         /* =========================================
            3. HERO SECTION
            ========================================= */
-        .hero {
-            min-height: 100vh; display: flex; align-items: center; padding-top: 80px;
-        }
-        .hero-grid {
-            display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 50px; align-items: center;
-        }
+        .hero { min-height: 100vh; display: flex; align-items: center; padding-top: 80px; }
+        .hero-grid { display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 50px; align-items: center; }
         
         .hero-text h1 {
             font-size: 3.5rem; line-height: 1.1; font-weight: 900; margin-bottom: 20px;
@@ -94,118 +90,87 @@
         .hero-img:hover { transform: rotate(0deg) scale(1.02); box-shadow: 10px 10px 0 var(--color-purple); }
 
         /* =========================================
-           4. JOURNEY SECTION
+           4. ABOUT SECTION (NEW FROM CV)
+           ========================================= */
+        .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 50px; align-items: center; }
+        .skill-list { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 20px; }
+        .skill-badge {
+            padding: 8px 15px; background: white; border: 1px solid #eee; 
+            border-radius: 8px; font-size: 0.9rem; font-weight: 600;
+            display: flex; align-items: center; gap: 8px; box-shadow: var(--shadow-sm);
+        }
+        .skill-badge:hover { border-color: var(--color-orange); color: var(--color-orange); }
+
+        /* =========================================
+           5. JOURNEY SECTION (TIMELINE)
            ========================================= */
         .section-title { font-size: 2rem; font-weight: 800; margin-bottom: 60px; border-left: 5px solid var(--color-orange); padding-left: 20px; }
         
         .timeline { position: relative; max-width: 800px; margin: 0 auto; padding: 50px 0; }
-        .timeline::after {
-            content: ''; position: absolute; width: 2px; background: #E2E8F0;
-            top: 0; bottom: 0; left: 50%; margin-left: -1px;
-        }
+        .timeline::after { content: ''; position: absolute; width: 2px; background: #E2E8F0; top: 0; bottom: 0; left: 50%; margin-left: -1px; }
         .timeline-item { padding: 20px 40px; position: relative; width: 50%; }
         .left { left: 0; text-align: right; }
         .right { left: 50%; text-align: left; }
-        
         .timeline-item::after {
-            content: ''; position: absolute; width: 16px; height: 16px; right: -8px;
+            content: ''; position: absolute; width: 20px; height: 20px; right: -10px;
             background: white; border: 4px solid var(--color-orange); top: 40px; border-radius: 50%; z-index: 2;
         }
-        .right::after { left: -8px; border-color: var(--color-purple); }
+        .right::after { left: -10px; border-color: var(--color-purple); }
 
         .content-box {
             padding: 25px; background: white; border-radius: 16px;
             box-shadow: var(--shadow-sm); transition: 0.3s; border: 1px solid #EDF2F7;
         }
         .content-box:hover { transform: translateY(-5px); box-shadow: var(--shadow-lg); }
-        
-        .content-img {
-            width: 100%; height: 180px; object-fit: cover; border-radius: 12px;
-            margin: 15px 0; border: 1px solid #eee;
-        }
-        
+        .content-img { width: 100%; height: 180px; object-fit: cover; border-radius: 12px; margin: 15px 0; border: 1px solid #eee; }
         .date { font-size: 0.85rem; font-weight: 700; color: var(--color-orange); text-transform: uppercase; display: block; margin-bottom: 5px; }
 
         /* =========================================
-           5. SHOWCASE SECTION (UPDATED GRID)
+           6. SHOWCASE SECTION
            ========================================= */
-        .grid-projects { 
-            display: grid; 
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); 
-            gap: 40px; 
-        }
-
+        .grid-projects { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 40px; }
         .project-card { 
-            display: block; 
-            background: white; border-radius: 20px; overflow: hidden; 
+            display: block; background: white; border-radius: 20px; overflow: hidden; 
             box-shadow: var(--shadow-sm); transition: 0.4s; border: 1px solid #eee; 
             text-decoration: none; color: inherit; position: relative;
         }
         .project-card:hover { transform: translateY(-10px); box-shadow: var(--shadow-lg); border-color: var(--color-orange); }
-        
         .card-img { 
-            height: 220px; background: #F7FAFC; 
-            display: flex; align-items: center; justify-content: center; overflow: hidden; 
-            border-bottom: 1px solid #eee;
+            height: 220px; background: #F7FAFC; display: flex; align-items: center; justify-content: center; overflow: hidden; border-bottom: 1px solid #eee;
+            color: #A0AEC0; font-weight: 600; text-transform: uppercase; letter-spacing: 1px;
         }
         .card-img img { width: 100%; height: 100%; object-fit: cover; transition: 0.5s; }
-        
-        /* Portrait Mode Project */
         .card-img.portrait-mode { background: #EBF8FF; padding: 20px; }
         .card-img.portrait-mode img { width: auto; height: 100%; object-fit: contain; border-radius: 8px; box-shadow: 0 5px 15px rgba(0,0,0,0.1); }
-
         .project-card:hover .card-img img { transform: scale(1.05); }
-
         .card-info { padding: 25px; }
         .tag-row { display: flex; gap: 10px; margin-bottom: 15px; flex-wrap: wrap; }
-        .tag { 
-            font-size: 0.7rem; font-weight: 700; padding: 4px 10px; border-radius: 6px; 
-            text-transform: uppercase; letter-spacing: 0.5px;
-        }
+        .tag { font-size: 0.7rem; font-weight: 700; padding: 4px 10px; border-radius: 6px; text-transform: uppercase; letter-spacing: 0.5px; }
         .tag-client { background: #EDF2F7; color: #4A5568; }
         .tag-winner { background: #FAF5FF; color: var(--color-purple); border: 1px solid rgba(128,90,213,0.2); }
         .tag-web { background: #EBF8FF; color: var(--color-blue); }
-
         .card-info h3 { font-size: 1.2rem; font-weight: 700; margin-bottom: 8px; }
         .card-info p { font-size: 0.9rem; color: var(--text-muted); line-height: 1.5; }
-        
         .card-link-icon {
-            position: absolute; top: 20px; right: 20px; 
-            background: white; width: 35px; height: 35px; border-radius: 50%;
-            display: flex; align-items: center; justify-content: center;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1); opacity: 0; transition: 0.3s;
+            position: absolute; top: 20px; right: 20px; background: white; width: 35px; height: 35px; border-radius: 50%;
+            display: flex; align-items: center; justify-content: center; box-shadow: 0 2px 5px rgba(0,0,0,0.1); opacity: 0; transition: 0.3s;
         }
         .project-card:hover .card-link-icon { opacity: 1; transform: translate(5px, -5px); }
 
         /* =========================================
-           6. MODERN FOOTER (UPGRADED)
+           7. FOOTER
            ========================================= */
-        footer {
-            background: white;
-            padding: 80px 0 40px 0;
-            margin-top: 100px;
-            border-top: 1px solid #eee;
-        }
-        .footer-grid {
-            display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 40px; margin-bottom: 50px;
-        }
+        footer { background: white; padding: 80px 0 40px 0; margin-top: 100px; border-top: 1px solid #eee; }
+        .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 40px; margin-bottom: 50px; }
         .footer-brand h2 { font-size: 1.5rem; font-weight: 900; margin-bottom: 15px; }
         .footer-brand p { color: var(--text-muted); max-width: 300px; font-size: 0.95rem; }
-        
         .footer-col h4 { font-size: 1rem; font-weight: 700; margin-bottom: 20px; color: var(--text-main); }
-        .footer-links a { 
-            display: block; color: var(--text-muted); text-decoration: none; 
-            margin-bottom: 12px; font-size: 0.95rem; transition: 0.3s;
-        }
+        .footer-links a { display: block; color: var(--text-muted); text-decoration: none; margin-bottom: 12px; font-size: 0.95rem; transition: 0.3s; }
         .footer-links a:hover { color: var(--color-orange); transform: translateX(5px); }
-        
-        .footer-bottom {
-            text-align: center; padding-top: 40px; border-top: 1px solid #EDF2F7;
-            font-size: 0.85rem; color: #CBD5E0;
-        }
+        .footer-bottom { text-align: center; padding-top: 40px; border-top: 1px solid #EDF2F7; font-size: 0.85rem; color: #CBD5E0; }
 
         /* =========================================
-           7. PE BOT
+           8. PE BOT
            ========================================= */
         .pe-trigger {
             position: fixed; bottom: 30px; right: 30px; width: 60px; height: 60px;
@@ -214,40 +179,36 @@
             font-weight: 900; font-size: 1.5rem; cursor: pointer;
             box-shadow: 0 10px 20px rgba(255, 94, 0, 0.4); transition: 0.3s; z-index: 999;
         }
-        .pe-trigger:hover { transform: scale(1.1); }
-
         .pe-window {
             position: fixed; bottom: 100px; right: 30px; width: 320px; height: 450px;
             background: white; border-radius: 20px; display: none; flex-direction: column;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.2); overflow: hidden; z-index: 999;
-            border: 1px solid #eee;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.2); overflow: hidden; z-index: 999; border: 1px solid #eee;
         }
         .pe-header { padding: 15px; background: #FAFAFA; border-bottom: 1px solid #eee; display: flex; justify-content: space-between; font-weight: 700; }
         .pe-body { flex: 1; padding: 15px; overflow-y: auto; background: white; }
         .pe-input { padding: 15px; border-top: 1px solid #eee; display: flex; }
         .pe-input input { flex: 1; border: none; outline: none; }
-        
         .msg { padding: 10px 14px; border-radius: 10px; font-size: 0.9rem; margin-bottom: 10px; max-width: 85%; }
         .bot { background: #F3F4F6; color: #1A202C; align-self: flex-start; }
         .user { background: var(--color-orange); color: white; align-self: flex-end; margin-left: auto; }
+
+        /* =========================================
+           9. MOBILE OPTIMIZATION
+           ========================================= */
         @media (max-width: 768px) {
-           
-            /* Hero Stack */
-            .hero-grid { grid-template-columns: 1fr; text-align: center; gap: 40px; }
+            .hero-grid, .about-grid { grid-template-columns: 1fr; text-align: center; gap: 40px; }
             .hero-img-wrapper { order: -1; display: flex; justify-content: center; }
             .hero-text h1 { font-size: 2.5rem; }
             
-            /* Timeline Mobile Alignment (Left Aligned) */
-            .timeline::after { left: 31px; } 
-            .timeline-item { width: 100%; padding-left: 70px; padding-right: 0; }
-            .timeline-item::after { left: 23px; top: 25px; } 
-            .left, .right { text-align: left; } 
+            /* TIMELINE FIX */
+            .timeline::after { left: 30px !important; } 
+            .timeline-item { width: 100% !important; padding-left: 70px !important; padding-right: 0 !important; margin: 0 !important; }
+            .timeline-item.right, .timeline-item.left { left: 0 !important; text-align: left !important; }
+            .timeline-item::after, .timeline-item.left::after, .timeline-item.right::after { 
+                left: 21px !important; right: auto !important; top: 25px !important; 
+            }
             
-            /* Footer Stack */
             .footer-grid { grid-template-columns: 1fr; gap: 30px; text-align: center; }
-            .footer-brand p { margin: 0 auto; }
-            
-            /* Hide Desktop Menu */
             .menu { display: none; }
         }
     </style>
@@ -256,11 +217,12 @@
 
     <nav>
         <div class="container nav-flex">
-            <a href="#" class="logo">PANDU<span>.DEV</span></a>
+            <a href="#" class="logo">PANDU<span>.Portofolio</span></a>
             <div class="menu">
+                <a href="#about">About</a>
                 <a href="#journey">Journey</a>
                 <a href="#showcase">Projects</a>
-                <a href="#" style="background: var(--text-main); color: white; padding: 8px 16px; border-radius: 20px;">Download CV</a>
+                <a href="assets/cv-pandu.pdf" target="_blank" style="background: var(--text-main); color: white; padding: 8px 16px; border-radius: 20px;">Download CV</a>
             </div>
         </div>
     </nav>
@@ -273,11 +235,42 @@
                 <p style="font-size: 1.1rem; color: var(--text-muted); margin-bottom: 30px;">
                     Hi, I'm <b>Pandu Pratama</b>. From Padang to the World. I build functional web apps with an advertising edge.
                 </p>
-                <a href="#journey" class="btn-primary">Start The Journey</a>
+                <div style="display: flex; gap: 15px; flex-wrap: wrap;">
+                    <a href="#journey" class="btn-primary">Start The Journey</a>
+                    <a href="assets/cv-pandu.pdf" target="_blank" style="padding: 14px 35px; border: 2px solid var(--text-main); color: var(--text-main); text-decoration: none; border-radius: 12px; font-weight: 600; margin-top: 30px; display:inline-block;">View Resume</a>
+                </div>
             </div>
             
             <div class="hero-img-wrapper reveal">
-                <img src="assets/profile-ai.jpg" alt="Pandu at AI Lab" class="hero-img">
+                <img src="assets/profile-ai.jpg" alt="Pandu at AI Lab" class="hero-img" onerror="this.style.display='none'">
+            </div>
+        </div>
+    </section>
+
+    <section id="about" style="padding: 100px 0; background: white;">
+        <div class="container">
+            <div class="about-grid reveal">
+                <div>
+                    <h2 class="section-title" style="margin-bottom: 30px;">More Than Just Code.</h2>
+                    <p style="color: var(--text-muted); margin-bottom: 20px;">
+                        Mahasiswa Teknik Informatika di Institut Teknologi Padang yang antusias di bidang UI/UX, pengembangan web, dan produk. 
+                        Memiliki pengalaman internasional melalui program pertukaran budaya (Kamboja & Korea Selatan) serta pengalaman kerja dalam tim yang dinamis.
+                    </p>
+                    <p style="color: var(--text-muted);">
+                        Saat ini fokus menggabungkan skill teknis (Laravel, Vue) dengan strategi digital marketing (SEO) untuk menciptakan produk yang berdampak.
+                    </p>
+                </div>
+                <div>
+                    <h3 style="font-size: 1.2rem; font-weight: 700; margin-bottom: 20px;">Tech & Skills</h3>
+                    <div class="skill-list">
+                        <div class="skill-badge">💻 Backend Web Dev</div>
+                        <div class="skill-badge">🎨 UI/UX Design</div>
+                        <div class="skill-badge">📈 SEO & Marketing</div>
+                        <div class="skill-badge">🐍 Python (Dicoding)</div>
+                        <div class="skill-badge">🤖 AI Basics</div>
+                        <div class="skill-badge">🌏 Cross-Cultural Comm.</div>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
@@ -299,8 +292,8 @@
                     <div class="content-box">
                         <span class="date" style="color: var(--color-purple)">Global Experience</span>
                         <h3>Exchange @ CamTech Cambodia</h3>
-                        <img src="assets/camtech-vibe2.jpg" alt="CamTech Journey" class="content-img">
-                        <p>1.200km journey. Belajar teknologi lintas negara dan adaptasi budaya di CamTech University. Networking with global startups.</p>
+                        <img src="assets/camtech-vibe2.jpg" alt="CamTech Journey" class="content-img" onerror="this.style.display='none'">
+                        <p>1.200km journey. Belajar teknologi lintas negara dan adaptasi budaya di CamTech University.</p>
                     </div>
                 </div>
 
@@ -308,8 +301,8 @@
                     <div class="content-box">
                         <span class="date">Achievement</span>
                         <h3>Creative Idea Winner</h3>
-                        <img src="assets/hackathon-focus.jpg" alt="Hackathon Focus" class="content-img">
-                        <p>Juara Ide Terkreatif Unand Hackathon. Membangun "Minang Language" sebagai solusi pelestarian budaya lewat teknologi.</p>
+                        <img src="assets/hackathon-focus.jpg" alt="Hackathon Focus" class="content-img" onerror="this.style.display='none'">
+                        <p>Juara Ide Terkreatif Unand Hackathon. Membangun "Minang Language" sebagai solusi pelestarian budaya.</p>
                     </div>
                 </div>
 
@@ -333,7 +326,7 @@
                 <a href="https://kaenponsel.netlify.app/" target="_blank" class="project-card reveal">
                     <div class="card-link-icon">↗</div>
                     <div class="card-img">
-                        <img src="assets/project-iphone.jpg" alt="KN Ponsel" onerror="this.src='https://via.placeholder.com/400x300?text=KN+Ponsel'">
+                        <img src="assets/project-iphone.jpg" alt="KN Ponsel">
                     </div>
                     <div class="card-info">
                         <div class="tag-row">
@@ -348,7 +341,7 @@
                 <a href="https://ml.natta.studio/" target="_blank" class="project-card reveal">
                     <div class="card-link-icon">↗</div>
                     <div class="card-img">
-                        <img src="assets/project-minang.jpg" alt="Minang Language" onerror="this.src='https://via.placeholder.com/400x300?text=Minang+Language'">
+                        <img src="assets/project-minang.jpg" alt="Minang Language">
                     </div>
                     <div class="card-info">
                         <div class="tag-row">
@@ -363,7 +356,7 @@
                 <a href="https://retro-modern-prototype.netlify.app/" target="_blank" class="project-card reveal">
                     <div class="card-link-icon">↗</div>
                     <div class="card-img">
-                        <img src="assets/project-thrift.jpg" alt="World Garments" onerror="this.src='https://via.placeholder.com/400x300?text=Thrift+Store'">
+                        <img src="assets/project-thrift.jpg" alt="World Garments">
                     </div>
                     <div class="card-info">
                         <div class="tag-row">
@@ -377,8 +370,8 @@
 
                 <a href="https://tessspp.netlify.app/dashboard" target="_blank" class="project-card reveal">
                     <div class="card-link-icon">↗</div>
-                    <div class="card-img">
-                        <img src="assets/project-inventory.jpg" alt="Arjuna Dashboard" onerror="this.src='https://via.placeholder.com/400x300?text=Inventory+Dashboard'">
+                    <div class="card-img bg-orange">
+                        <img src="assets/project-inventory.jpg" alt="Inventory">
                     </div>
                     <div class="card-info">
                         <div class="tag-row">
@@ -386,14 +379,14 @@
                             <span class="tag tag-web">SaaS</span>
                         </div>
                         <h3>Arjuna Inventory</h3>
-                        <p>Dashboard manajemen stok Digital Printing. Real-time tracking order & bahan.</p>
+                        <p>Dashboard manajemen stok Digital Printing. Real-time tracking order & bahan. (Ex-Employee Project!)</p>
                     </div>
                 </a>
 
                  <a href="https://pos-arjuna-prototype.netlify.app/" target="_blank" class="project-card reveal">
                     <div class="card-link-icon">↗</div>
                     <div class="card-img portrait-mode">
-                        <img src="assets/project-pos.jpg" alt="Arjuna POS" onerror="this.src='https://via.placeholder.com/200x400?text=Mobile+POS'">
+                        <img src="assets/project-pos.jpg" alt="Mobile POS">
                     </div>
                     <div class="card-info">
                         <div class="tag-row">
@@ -402,6 +395,20 @@
                         </div>
                         <h3>Arjuna POS Mobile</h3>
                         <p>Aplikasi Kasir berbasis mobile web. UI Portrait yang optimal untuk smartphone.</p>
+                    </div>
+                </a>
+
+                <a href="#" class="project-card reveal">
+                    <div class="card-link-icon">↗</div>
+                    <div class="card-img">
+                        <img src="assets/camtech-vibe3.jpg" alt="CamTech" onerror="this.src='assets/camtech-vibe.jpg'">
+                    </div>
+                    <div class="card-info">
+                        <div class="tag-row">
+                            <span class="tag tag-winner">International</span>
+                        </div>
+                        <h3>CamTech Collaboration</h3>
+                        <p>Project kolaborasi startup education di Kamboja.</p>
                     </div>
                 </a>
 
@@ -414,7 +421,7 @@
             <div class="footer-grid">
                 
                 <div class="footer-brand">
-                    <a href="#" class="logo">PANDU<span></span></a>
+                    <a href="#" class="logo">PANDU<span>.Portofolio</span></a>
                     <p style="margin-top: 15px;">
                         Building digital products with logic and aesthetics. Based in Padang, available for the world.
                     </p>
@@ -422,16 +429,17 @@
 
                 <div class="footer-col footer-links">
                     <h4>Navigation</h4>
+                    <a href="#about">About</a>
                     <a href="#journey">My Journey</a>
-                    <a href="#showcase">Selected Projects</a>
-                    <a href="#">Download Resume</a>
+                    <a href="#showcase">Projects</a>
+                    <a href="assets/cv-pandu.pdf" target="_blank">Download Resume</a>
                 </div>
 
                 <div class="footer-col footer-links">
                     <h4>Connect</h4>
                     <a href="https://github.com/pandupp" target="_blank">GitHub</a>
                     <a href="https://www.linkedin.com/in/pandu-pratama-handika-8568131b2/" target="_blank">LinkedIn</a>
-                    <a href="pandu.pratama.ha@gmail.com">Email Me</a>
+                    <a href="mailto:Pandu.Pratama.Ha@gmail.com">Email Me</a>
                 </div>
             </div>
 
@@ -441,7 +449,7 @@
         </div>
     </footer>
 
-    <div class="pe-trigger" onclick="toggleBot()">P.</div>
+    <div class="pe-trigger" onclick="toggleBot()">Pe.</div>
     <div class="pe-window" id="peBot">
         <div class="pe-header">
             <span>Pe_Bot Assistant</span>
@@ -459,7 +467,6 @@
     </div>
 
     <script>
-        // --- LOGIC PE BOT ---
         function toggleBot() {
             const bot = document.getElementById('peBot');
             bot.style.display = bot.style.display === 'flex' ? 'none' : 'flex';
@@ -481,12 +488,13 @@
         }
 
         function botReply(text) {
-            let reply = "Maaf, Pe_Bot gak ngerti. Coba tanya 'Sate', 'Cambodia', atau 'Project'.";
+            let reply = "Maaf, Pe_Bot gak ngerti. Coba tanya 'Sate', 'Cambodia', 'Korea', atau 'Project'.";
             
-            if (text.includes("sate") || text.includes("kerja")) reply = "Hahaha! 🍢 Pandu kerja di Sate Manangkabau (3 tahun). Belajar mental baja. Sate gosong itu lebih serem dari error koding!";
-            if (text.includes("cambodia") || text.includes("exchange")) reply = "CamTech University! 🇰🇭 Pengalaman 1.200km dari rumah. Belajar tech culture dan adaptasi global.";
+            if (text.includes("sate") || text.includes("kerja")) reply = "Hahaha! 🍢 Pandu kerja di Sate Manangkabau (3 tahun). Belajar mental baja!";
+            if (text.includes("cambodia") || text.includes("exchange")) reply = "CamTech University 2025 & Youth Exchange Korea 2020! 🌏 Double International Exposure.";
             if (text.includes("hackathon") || text.includes("juara")) reply = "Juara Ide Terkreatif Unand! 🏆 Coding itu butuh solusi, bukan cuma baris kode.";
-            if (text.includes("project") || text.includes("karya")) reply = "Ada 5 project unggulan di bawah! Dari E-Commerce iPhone, Thrift, sampai POS System.";
+            if (text.includes("project") || text.includes("karya")) reply = "Project ada di bawah! Dari E-Commerce iPhone, Thrift, sampai POS System.";
+            if (text.includes("korea")) reply = "Yups! Pandu juga pernah ikut Youth Exchange Program ke Korea Selatan tahun 2020. Annyeong! 🇰🇷";
             if (text.includes("halo") || text.includes("hi")) reply = "Halo juga! Ada yang bisa Pe_Bot bantu?";
 
             document.getElementById('chatBody').innerHTML += `<div class="msg bot">${reply}</div>`;
@@ -504,6 +512,5 @@
         }
         reveal();
     </script>
-
 </body>
 </html>
